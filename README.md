@@ -16,6 +16,8 @@ To run the project, you can click on the link below, and it will show all the re
 
 
 ## Speech Processing and Feature
+![image](https://github.com/user-attachments/assets/4c564ba8-bbf8-4c9d-a8a6-a921f4fed033)
+
 
 
 ## Mel Spectrum and Cepstrum
