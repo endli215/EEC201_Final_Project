@@ -71,11 +71,19 @@ We calculate 20 coefficients, but remove the first coefficient to eliminate the 
 ### Test on Testing and Training Data
 
 ### Notch Filter (Seb)
-We can apply the notch filter at different frequencies to either improve our accuracy of the speech recognition algorithm by removing unwanted noise in the speech signals or we can hinder the accuracy of our algorithm by removing key frequencies that help us distinguish the speech files from one another.
+We can apply a notch filter at different frequencies to either improve or hinder the accuracy of our speech recognition algorithm:  
 
-We can implement and compute the accuracy of the notch filter effect by using the same functions described above. We just need to filter our speech signal by applying the notch filter. But the steps to compute the cepstrum coefficients and centroids should not change. 
+- Improvement: By removing unwanted noise in the speech signals, the notch filter can enhance accuracy.  
+- Hindrance: If key frequencies that distinguish speech files are removed, recognition accuracy may decrease.  
 
-The way we implement the notch filter is by copying the code from test 4 that computes the cepstrum coefficients, and adding extra code to filter our signal before going through the steps outlined above for **Mel Spectrum and Cepstrum**.
+To evaluate the effect of the notch filter, we compute the accuracy of the speech recognition algorithm after filtering the signal. The process remains largely the same:  
+
+1. Apply the notch filter to the speech signal before further processing.  
+2. Compute the Mel Cepstrum Coefficients (MFCCs) as described earlier.  
+3. Perform LBG clustering to obtain centroids.  
+4. Evaluate the recognition accuracy using the filtered speech data.  
+
+To implement the notch filter, we modify the existing code from Test 4, which computes the cepstrum coefficients. The key difference is that we filter the speech signal before computing MFCCs. The steps for Mel Spectrum and Cepstrum computation remain unchanged and are described in the section **Mel Spectrum and Cepstrum**.
 
 ### Speaker and Speech recognition 
 
