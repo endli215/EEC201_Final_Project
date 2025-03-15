@@ -46,7 +46,7 @@ This section outlines the process of computing Mel Cepstrum Coefficients (MFCCs)
 ## Steps for Computing Mel Cepstrum Coefficients
 
 ### 1. Windowing the Speech Signal
-Speech is a **non-stationary** signal, meaning its characteristics change over time. To analyze it effectively, we segment it into **short overlapping frames**. Each frame is typically **20–40 ms** long, with **50% overlap** between consecutive frames to ensure smooth transitions.
+Speech is a **non-stationary** signal, meaning its characteristics change over time. To analyze it effectively, we segment it into **short overlapping frames**. Each frame is typically **5–100 ms** long, with **50% overlap** between consecutive frames to ensure smooth transitions.
 
 To minimize spectral leakage, we apply a **Hamming window** to each frame:
 
