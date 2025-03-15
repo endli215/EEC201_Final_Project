@@ -53,14 +53,16 @@ The human auditory system perceives frequency non-linearly, with higher sensitiv
 
 Each filter sums the energy in its respective frequency range, transforming the linear frequency spectrum into the Mel frequency spectrum. To create the Mel filter banks we use the function `librosa.filters.mel` from the `librosa` library. We then normalize all the triangles to have a maximum value of 1. 
 
+We then apply the Mel filter banks to every window to get the Mel spectrum. By the end of the calculation we will have a matrix of MxN where M is the number of windows from the original signal and N is the amount of Mel filter banks. 
+
 #### 4. Logarithm and Discrete Cosine Transform (DCT)
 Next, we take the logarithm of the Mel-filtered energies. This step aligns with human auditory perception, where loudness is perceived logarithmically rather than linearly.
 
-Finally, we compute the **Discrete Cosine Transform (DCT)** to obtain the **Mel Cepstrum Coefficients (MFCCs)**. The DCT removes correlations between the Mel-scaled features and produces a compact representation. The equation for DCT is:
+Finally, we compute the Discrete Cosine Transform (DCT) to obtain the Mel Cepstrum Coefficients (MFCCs). The DCT removes correlations between the Mel-scaled features and produces a compact representation. The equation for DCT is shown below
 
-c_n = sum_{m=1}^{M} S(m) * cos( π * n / M * (m - 0.5) )
+<img width="673" alt="Screenshot 2025-03-15 at 3 36 03 PM" src="https://github.com/user-attachments/assets/76856d35-f05f-4b8e-83a0-a64b5e9c295f" />
 
-where `M` is the number of Mel filter banks, and `c_n` represents the `n`-th cepstral coefficient. 
+where `k` is the number of Mel filter banks, and `c_n` represents the `n`-th cepstral coefficient. 
 
 We calculate **20 coefficients**, but **remove the first coefficient** to eliminate the influence of overall loudness. This ensures that our model captures only the **distinct features of speech**, rather than variations in volume.
 
