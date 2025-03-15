@@ -38,11 +38,6 @@ Figure 2 Original Audio signal and Spectrogram Vs Trimed signal and Spectrogram
 
 ### Mel Spectrum and Cepstrum （Seb）
 
-# Mel Cepstrum Computation
-
-## Overview
-This section outlines the process of computing Mel Cepstrum Coefficients (MFCCs) for speech recognition. The Mel Cepstrum is a widely used feature representation in speech processing, as it effectively captures the perceptual characteristics of human hearing.
-
 ## Steps for Computing Mel Cepstrum Coefficients
 
 ### 1. Windowing the Speech Signal
@@ -84,16 +79,6 @@ c_n = \sum_{m=1}^{M} S(m) \cos \left[ \frac{\pi n}{M} (m - 0.5) \right]
 \]
 
 where \(M\) is the number of Mel filter banks, and \(c_n\) represents the \(n\)-th cepstral coefficient. Typically, **the first 12–13 coefficients** are retained, as they capture the most relevant speech features.
-
-## Summary
-The Mel Cepstrum computation process involves **windowing, Fourier transformation, Mel filtering, logarithm compression, and DCT**. The resulting **MFCCs** provide a compact yet powerful representation of speech, making them ideal features for speech recognition tasks.
-
----
-
-### Notes:
-- This implementation was done manually in Python instead of using built-in libraries to gain deeper insight into the process.
-- MFCCs are widely used in speech recognition, speaker identification, and other audio processing applications.
-
 
 
 
