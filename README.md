@@ -25,7 +25,7 @@ Figure 1: Block Diagram of the feature to get the MFCC
 <div align="center">
   <img src="https://github.com/user-attachments/assets/4c564ba8-bbf8-4c9d-a8a6-a921f4fed033" alt="Figure 1" width="2000"/>
 
-Figure 2
+Figure 2 Original Audio signal and Spectrogram Vs Trimed signal and Spectrogram
 
 
 </div>
