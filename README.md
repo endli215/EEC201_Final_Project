@@ -2,7 +2,7 @@
 Team Golf: Ender Li, Sebastian Diaz 
 
 ### Abstract (Seb)
-
+This project explores the implementation of speech recognition using Mel Cepstrum coefficients and the Linde-Buzo-Gray (LBG) clustering algorithm. We detail the step-by-step process of computing Mel Cepstrum coefficients, implementing the LBG algorithm, and integrating both techniques for effective speech recognition. The system is trained on a basic dataset and tested to evaluate its performance, achieving an accuracy of X%. Our results demonstrate the feasibility of using Mel Cepstrum features and LBG clustering for speech recognition, providing insights into its effectiveness.
 
 
 
