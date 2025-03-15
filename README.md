@@ -68,7 +68,6 @@ We calculate 20 coefficients, but remove the first coefficient to eliminate the 
 
 ### Vector Quantization(LBG)
 
-### Test on Testing and Training Data
 
 ### Notch Filter (Seb)
 We can apply a notch filter at different frequencies to either improve or hinder the accuracy of our speech recognition algorithm:  
