@@ -71,8 +71,10 @@ In our speech recognition, we have used the Linde-Buzo-Gray (LBG) algorithm, whi
 
 The process begins with the initialization of a codebook, typically containing a single centroid, and this codebook is then iteratively split to create more centroids until the desired number is reached(So the number of centroids is always 2^N). During the assignment step, each data point is assigned to the centroid closest to it. Following this, the update step recalculates the centroids by computing the mean of the data points that are assigned to each centroid. The algorithm continues this process until convergence is achieved, which occurs when the distortion between consecutive iterations becomes sufficiently small, indicating that the centroids have stabilized, as shown in Figure 3 below as a block diagram.
 <div align="center">
-![image](https://github.com/user-attachments/assets/bbb97aaa-6a11-4098-903c-8d00056c7a38)
-</div>div>
+  <img src="https://github.com/user-attachments/assets/bbb97aaa-6a11-4098-903c-8d00056c7a38" alt="Figure 1" width="500"/>
+Figure 3: Flow diagram of LBG algorithm (Adopted from Rabiner and Juang, 1993)
+</div>
+
 ### Notch Filter (Seb)
 We can apply a notch filter at different frequencies to either improve or hinder the accuracy of our speech recognition algorithm:  
 
