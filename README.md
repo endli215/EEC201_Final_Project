@@ -38,10 +38,63 @@ Figure 2 Original Audio signal and Spectrogram Vs Trimed signal and Spectrogram
 
 ### Mel Spectrum and Cepstrum （Seb）
 
-As shown in Figure 1, the process of calculating Mel Cepstrum coefficients follows a series of well-defined steps. Up until the spectrogram stage, these steps are standard, with libraries in Python or MATLAB readily available to compute spectrograms. However, for this project, we chose to implement each step manually to gain deeper insight into the process.
-We begin by segmenting the speech signal into overlapping windows to capture temporal variations. A Hamming window is then applied to each segment to minimize spectral leakage and reduce the ripples introduced by windowing. Next, we compute the Fast Fourier Transform (FFT) of each windowed segment and extract its magnitude spectrum.
-To mimic the way the human auditory system perceives sound, we apply a set of Mel filter banks to the magnitude spectrum, a process known as Mel frequency wrapping. The Mel scale is a perceptual scale that reflects how humans perceive pitch: it places more emphasis on lower frequencies while compressing higher frequencies, aligning with the non-linear sensitivity of human hearing.
-After applying the Mel filters, we take the logarithm of the resulting values to approximate the way the human ear perceives loudness. Finally, we compute the Discrete Cosine Transform (DCT) to decorrelate the features and obtain the Mel Cepstrum coefficients, which serve as compact and informative representations of the speech signal for further processing.
+# Mel Cepstrum Computation
+
+## Overview
+This section outlines the process of computing Mel Cepstrum Coefficients (MFCCs) for speech recognition. The Mel Cepstrum is a widely used feature representation in speech processing, as it effectively captures the perceptual characteristics of human hearing.
+
+## Steps for Computing Mel Cepstrum Coefficients
+
+### 1. Windowing the Speech Signal
+Speech is a **non-stationary** signal, meaning its characteristics change over time. To analyze it effectively, we segment it into **short overlapping frames**. Each frame is typically **20–40 ms** long, with **50% overlap** between consecutive frames to ensure smooth transitions.
+
+To minimize spectral leakage, we apply a **Hamming window** to each frame:
+
+\[
+w(n) = 0.54 - 0.46\cos\left(\frac{2\pi n}{N-1}\right)
+\]
+
+where \(N\) is the frame length and \(n\) is the sample index within the frame. This step reduces discontinuities at the frame edges.
+
+### 2. Computing the Spectrum
+After windowing, we apply the **Fast Fourier Transform (FFT)** to each frame to convert the signal from the time domain to the frequency domain. We then compute the **magnitude spectrum**:
+
+\[
+X(k) = |\text{FFT}(x(n))|
+\]
+
+where \(X(k)\) represents the magnitude spectrum and \(x(n)\) is the windowed speech signal.
+
+### 3. Mel Frequency Wrapping
+The human auditory system perceives frequency **non-linearly**, with higher sensitivity to lower frequencies. To model this, we use the **Mel scale**, which is defined as:
+
+\[
+f_{\text{mel}} = 2595 \log_{10} \left(1 + \frac{f}{700}\right)
+\]
+
+To apply this transformation, we use a set of **Mel filter banks**, which consist of overlapping triangular filters spaced according to the Mel scale. Each filter sums the energy in its respective frequency range, transforming the linear frequency spectrum into the **Mel frequency spectrum**.
+
+### 4. Logarithm and Discrete Cosine Transform (DCT)
+Next, we take the **logarithm** of the Mel-filtered energies. This step aligns with human auditory perception, where loudness is perceived logarithmically rather than linearly.
+
+Finally, we compute the **Discrete Cosine Transform (DCT)** to obtain the **Mel Cepstrum Coefficients (MFCCs)**. The DCT removes correlations between the Mel-scaled features and produces a compact representation. The equation for DCT is:
+
+\[
+c_n = \sum_{m=1}^{M} S(m) \cos \left[ \frac{\pi n}{M} (m - 0.5) \right]
+\]
+
+where \(M\) is the number of Mel filter banks, and \(c_n\) represents the \(n\)-th cepstral coefficient. Typically, **the first 12–13 coefficients** are retained, as they capture the most relevant speech features.
+
+## Summary
+The Mel Cepstrum computation process involves **windowing, Fourier transformation, Mel filtering, logarithm compression, and DCT**. The resulting **MFCCs** provide a compact yet powerful representation of speech, making them ideal features for speech recognition tasks.
+
+---
+
+### Notes:
+- This implementation was done manually in Python instead of using built-in libraries to gain deeper insight into the process.
+- MFCCs are widely used in speech recognition, speaker identification, and other audio processing applications.
+
+
 
 
 ### Vector Quantization(LBG)
