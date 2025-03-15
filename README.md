@@ -18,9 +18,10 @@ In this Github repository, there is mostly audio for training and testing audio 
 Speech signals are considered quasi-stationary, meaning that when analyzed using the Short-Time Fourier Transform (STFT) with a sufficiently short frame length, their frequency characteristics remain relatively stationary. While a spectrogram may provide some insight into the spoken content, it is generally insufficient for speaker recognition. Given that humans can possess and distinguish voices, signal processing techniques can be employed to emulate this perceptual capability. One such approach is Mel frequency wrapping, which applies a filterbank designed to reflect the human auditory system's sensitivity to different frequencies. The filtered signal is then used to compute Mel-Frequency Cepstral Coefficients (MFCCs), which serve as a robust representation for both speech and speaker characterization.
 
 <div align="center">
+  
   <img src="https://github.com/user-attachments/assets/1b4cd0fc-38e5-416e-ae89-0c4837229ce8" alt="Figure 1" width="2000"/>
 
-Figure 1: Block Diagram of the feature to get the MFCC
+  Figure 1: Block Diagram of the feature to get the MFCC
 </div>
 According to Figure 1, the initial step in the process involves generating the spectrogram of the speech signal. To achieve this, we first imported the audio file from GitHub and plotted it in the time domain. This visualization provides insight into the characteristics of the signal. As illustrated in Figure 2, the left-hand side displays both the original real-time audio signal and its corresponding spectrogram. From the real-time signal, it is evident that for the majority of the time, the amplitude remains low and nearly stationary. The presence of stationary input can make it challenging to distinguish variations in the spectrogram.<br />
 
@@ -30,10 +31,7 @@ To compute the spectrogram, we utilized the ```scipy.signal.stft``` function in 
 In subsequent tests, we also computed the STFT manually by implementing frame blocking, windowing, and the Fast Fourier Transform (FFT) without relying on ```scipy.signal.stft```. The results obtained through this approach closely matched those generated using the built-in function, demonstrating the validity of our methodology. 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/4c564ba8-bbf8-4c9d-a8a6-a921f4fed033" alt="Figure 1" width="2000"/>
-
-Figure 2 Original Audio signal and Spectrogram Vs Trimed signal and Spectrogram
-
-
+  Figure 2 Original Audio signal and Spectrogram Vs Trimed signal and Spectrogram
 </div>
 
 ### Mel Spectrum and Cepstrum （Seb）
@@ -70,9 +68,13 @@ We calculate 20 coefficients but remove the first coefficient to eliminate the i
 In our speech recognition, we have used the Linde-Buzo-Gray (LBG) algorithm, which is a well-known method for vector quantization. Vector quantization is a process used in signal processing and data compression to represent high-dimensional data with a limited set of representative vectors called centroids or codebook vectors. The goal of the LBG algorithm is to partition the data into clusters and optimize the centroids such that the distortion (or quantization error) between the data points and their assigned centroids is minimized. The def function is called ```lbg_vector_quantization(num_centroids, cepstrum, esp)``` it can customize the number of centriods the function is outputting, and we can customize each esp in different cases to get the maximum accuracy, which is excellent.
 
 The process begins with the initialization of a codebook, typically containing a single centroid, and this codebook is then iteratively split to create more centroids until the desired number is reached(So the number of centroids is always 2^N). During the assignment step, each data point is assigned to the centroid closest to it. Following this, the update step recalculates the centroids by computing the mean of the data points that are assigned to each centroid. The algorithm continues this process until convergence is achieved, which occurs when the distortion between consecutive iterations becomes sufficiently small, indicating that the centroids have stabilized, as shown in Figure 3 below as a block diagram.
+
 <div align="center">
+  
   <img src="https://github.com/user-attachments/assets/bbb97aaa-6a11-4098-903c-8d00056c7a38" alt="Figure 1" width="500"/>
-Figure 3: Flow diagram of LBG algorithm (Adopted from Rabiner and Juang, 1993)
+  
+  Figure 3: Flow diagram of LBG algorithm (Adopted from Rabiner and Juang, 1993)
+  
 </div>
 
 ### Notch Filter (Seb)
