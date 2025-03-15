@@ -64,7 +64,7 @@ Finally, we compute the Discrete Cosine Transform (DCT) to obtain the Mel Cepstr
 
 where `k` is the number of Mel filter banks, and `c_n` represents the `n`-th cepstral coefficient. We use the function `dct()` to compute the Discrete Cosine Transform for use. 
 
-We calculate 20 coefficients, but remove the first coefficient to eliminate the influence of overall loudness. This ensures that our model captures only the distinct features of speech, rather than variations in volume. The output of our code is MxN where M is the amount of windows when window framing and N is the Mel Cepstrum Coefficients.
+We calculate 20 coefficients but remove the first coefficient to eliminate the influence of overall loudness. This ensures that our model captures only the distinct features of speech, rather than variations in volume. The output of our code is MxN where M is the amount of windows when window framing and N is the Mel Cepstrum Coefficients.
 
 ### Vector Quantization(LBG)
 
