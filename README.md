@@ -38,6 +38,12 @@ Figure 2 Original Audio signal and Spectrogram Vs Trimed signal and Spectrogram
 
 ### Mel Spectrum and Cepstrum （Seb）
 
+As shown in Figure 1, the process of calculating Mel Cepstrum coefficients follows a series of well-defined steps. Up until the spectrogram stage, these steps are standard, with libraries in Python or MATLAB readily available to compute spectrograms. However, for this project, we chose to implement each step manually to gain deeper insight into the process.
+We begin by segmenting the speech signal into overlapping windows to capture temporal variations. A Hamming window is then applied to each segment to minimize spectral leakage and reduce the ripples introduced by windowing. Next, we compute the Fast Fourier Transform (FFT) of each windowed segment and extract its magnitude spectrum.
+To mimic the way the human auditory system perceives sound, we apply a set of Mel filter banks to the magnitude spectrum, a process known as Mel frequency wrapping. The Mel scale is a perceptual scale that reflects how humans perceive pitch: it places more emphasis on lower frequencies while compressing higher frequencies, aligning with the non-linear sensitivity of human hearing.
+After applying the Mel filters, we take the logarithm of the resulting values to approximate the way the human ear perceives loudness. Finally, we compute the Discrete Cosine Transform (DCT) to decorrelate the features and obtain the Mel Cepstrum coefficients, which serve as compact and informative representations of the speech signal for further processing.
+
+
 ### Vector Quantization(LBG)
 
 ### Test on Testing and Training Data
