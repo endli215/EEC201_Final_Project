@@ -40,21 +40,21 @@ Figure 2 Original Audio signal and Spectrogram Vs Trimed signal and Spectrogram
 
 Test 4 shows the completed function to compute the Mel Cepstrum Coefficients of the speech signal. Here we give an explanation of how the code works:
 #### 1. Windowing the Speech Signal
-Speech is a non-stationary signal, meaning its characteristics change over time. To analyze it effectively, we segment it into short overlapping frames. Each frame is typically 5–100 ms long, with 50% overlap between consecutive frames to ensure smooth transitions. To minimize spectral leakage, we apply a Hamming window to each frame. We use the numpy function `np.hamming(n)` to create a hamming filter. It takes an argument n where \(n\) is the frame length. This step reduces discontinuities at the frame edges.
+Speech is a non-stationary signal, meaning its characteristics change over time. To analyze it effectively, we segment it into short overlapping frames. Each frame is typically 5–100 ms long, with 50% overlap between consecutive frames to ensure smooth transitions. To minimize spectral leakage, we apply a Hamming window to each frame. We use the numpy function `np.hamming(n)` to create a hamming filter. Where \(n\) is the frame length. This step reduces discontinuities at the frame edges.
 
 #### 2. Computing the Spectrum
 After windowing, we apply the Fast Fourier Transform (FFT) to each frame to convert the signal from the time domain to the frequency domain. We then compute the magnitude spectrum by taking the magnitude of the FFT: `X(k) = |FFT(x(n))|` where `X(k)` represents the magnitude spectrum and `x(n)` is the windowed speech signal.
 
 #### 3. Mel Frequency Wrapping
-The human auditory system perceives frequency **non-linearly**, with higher sensitivity to lower frequencies. To model this, we use a set of **Mel filter banks**, which consist of overlapping triangular filters spaced according to the Mel scale. 
+The human auditory system perceives frequency non-linearly, with higher sensitivity to lower frequencies. To model this, we use a set of Mel filter banks, which consist of overlapping triangular filters spaced according to the Mel scale. 
 
-- Below **1000 Hz**, filters are **linearly spaced**.
-- Above **1000 Hz**, filters are **logarithmically spaced**.
+- Below 1000 Hz, filters are linearly spaced.
+- Above 1000 Hz, filters are logarithmically spaced.
 
-Each filter sums the energy in its respective frequency range, transforming the linear frequency spectrum into the **Mel frequency spectrum**.
+Each filter sums the energy in its respective frequency range, transforming the linear frequency spectrum into the Mel frequency spectrum. To create the Mel filter banks we use the function `librosa.filters.mel` from the `librosa` library. We then normalize all the triangles to have a maximum value of 1. 
 
 #### 4. Logarithm and Discrete Cosine Transform (DCT)
-Next, we take the **logarithm** of the Mel-filtered energies. This step aligns with human auditory perception, where loudness is perceived logarithmically rather than linearly.
+Next, we take the logarithm of the Mel-filtered energies. This step aligns with human auditory perception, where loudness is perceived logarithmically rather than linearly.
 
 Finally, we compute the **Discrete Cosine Transform (DCT)** to obtain the **Mel Cepstrum Coefficients (MFCCs)**. The DCT removes correlations between the Mel-scaled features and produces a compact representation. The equation for DCT is:
 
