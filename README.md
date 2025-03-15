@@ -71,6 +71,11 @@ We calculate 20 coefficients, but remove the first coefficient to eliminate the 
 ### Test on Testing and Training Data
 
 ### Notch Filter (Seb)
+We can apply the notch filter at different frequencies to either improve our accuracy of the speech recognition algorithm by removing unwanted noise in the speech signals or we can hinder the accuracy of our algorithm by removing key frequencies that help us distinguish the speech files from one another.
+
+We can implement and compute the accuracy of the notch filter effect by using the same functions described above. We just need to filter our speech signal by applying the notch filter. But the steps to compute the cepstrum coefficients and centroids should not change. 
+
+The way we implement the notch filter is by copying the code from test 4 that computes the cepstrum coefficients, and adding extra code to filter our signal before going through the steps outlined above for **Mel Spectrum and Cepstrum**.
 
 ### Speaker and Speech recognition 
 
