@@ -1,14 +1,15 @@
 # EEC201_Final_Project
 Team Golf: Ender Li, Sebastian Diaz 
 
-### Abstract (Seb)
+### Abstract 
 This project explores the implementation of speech recognition using Mel Cepstrum coefficients and the Linde-Buzo-Gray (LBG) clustering algorithm. We detail the step-by-step process of computing Mel Cepstrum coefficients, implementing the LBG algorithm, and integrating both techniques for effective speech recognition. The system is trained on a basic dataset and tested to evaluate its performance, achieving an accuracy of 71%. Our results demonstrate the feasibility of using Mel Cepstrum features and LBG clustering for speech recognition, providing insights into its effectiveness.
 
 
 
 ### Run Instructions
+The user can open up ```EEC201_Final_Project_Team_Golf.ipynb``` in the repository, and it will display the code and result as a PDF, and you can click open colab to see the full code 
 
-Link to the Colab project: https://colab.research.google.com/drive/1hs1_b0xaXeUPWici3pcfugvv-dD5AyN2?usp=sharing
+Alternatively:Link to the Colab project: https://colab.research.google.com/drive/1hs1_b0xaXeUPWici3pcfugvv-dD5AyN2?usp=sharing
 
 To run the project, you can click on the link below, and it will show all the results in graph and text. If there is any error showing up, click "Runtime" => "Disconnect and delecet runtime" => "Run all" If uthe ser wants to run an individual function, make sure to run the initialization first, and make sure to run```!git clone https://github.com/endli215/EEC201_Final_Project.git``` and ```%cd EEC201_Final_Projec``` only one time
 
@@ -34,7 +35,7 @@ In subsequent tests, we also computed the STFT manually by implementing frame bl
   Figure 2 Original Audio signal and Spectrogram Vs Trimed signal and Spectrogram
 </div>
 
-### Mel Spectrum and Cepstrum （Seb）
+### Mel Spectrum and Cepstrum 
 
 Test 4 shows the completed function to compute the Mel Cepstrum Coefficients of the speech signal. Here we give an explanation of how the code works:
 #### 1. Windowing the Speech Signal
@@ -98,7 +99,7 @@ To visualize the centroids and the cepstrum, we have plotted them in a two-dimen
   
 </div>
 
-### Notch Filter (Seb)
+### Notch Filter
 We can apply a notch filter at different frequencies to either improve or hinder the accuracy of our speech recognition algorithm:  
 
 - Improvement: By removing unwanted noise in the speech signals, the notch filter can enhance accuracy.  
