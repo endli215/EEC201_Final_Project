@@ -77,6 +77,15 @@ The process begins with the initialization of a codebook, typically containing a
   
 </div>
 
+
+<div align="center">
+
+  <img src="https://github.com/user-attachments/assets/d4279434-b817-439a-b9ba-619e57d297c0" alt="Figure 1" width="500"/>
+  
+  Figure 4: Flow diagram of LBG algorithm (Adopted from Rabiner and Juang, 1993)
+  
+</div>
+
 ### Notch Filter (Seb)
 We can apply a notch filter at different frequencies to either improve or hinder the accuracy of our speech recognition algorithm:  
 
