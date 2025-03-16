@@ -72,6 +72,7 @@ where `k` is the number of Mel filter banks, and `c_n` represents the `n`-th cep
 We calculate 20 coefficients but remove the first coefficient to eliminate the influence of overall loudness. This ensures that our model captures only the distinct features of speech, rather than variations in volume. The output of our code is MxN where M is the amount of windows when window framing and N is the Mel Cepstrum Coefficients.
 <div align="center">
 <img width="538" alt="Screenshot 2025-03-15 at 5 29 42 PM" src="https://github.com/user-attachments/assets/9b602bc0-2c2b-46a5-8037-22324e4a8420" />
+  
 Figure 4: Plot of Mel Cepstrum Coefficients
 </div>
 
