@@ -45,6 +45,7 @@ After windowing, we apply the Fast Fourier Transform (FFT) to each frame to conv
 
 #### 3. Mel Frequency Wrapping
 The human auditory system perceives frequency non-linearly, with higher sensitivity to lower frequencies. To model this, we use a set of Mel filter banks, which consist of overlapping triangular filters spaced according to the Mel scale. 
+<img width="844" alt="Screenshot 2025-03-15 at 5 25 38 PM" src="https://github.com/user-attachments/assets/cb78a8f9-3b76-4713-891b-9087b6423e8d" />
 
 - Below 1000 Hz, filters are linearly spaced.
 - Above 1000 Hz, filters are logarithmically spaced.
