@@ -99,7 +99,7 @@ To evaluate the effect of the notch filter, we compute the accuracy of the speec
 3. Perform LBG clustering to obtain centroids.  
 4. Evaluate the recognition accuracy using the filtered speech data.  
 
-To implement the notch filter, we modify the existing code from Test 4, which computes the cepstrum coefficients. The key difference is that we filter the speech signal before computing MFCCs. The steps for Mel Spectrum and Cepstrum computation remain unchanged and are described in the section **Mel Spectrum and Cepstrum**.
+To implement the notch filter, we modify the existing code from Test 4, which computes the cepstrum coefficients. The key difference is that we add code to filter the speech signal before computing MFCCs. To implement the notch filter we use the function `iirnotch` from `scipy.signal` to create the notch filter. We then use `filtfilt` function from the same library to apply our notch filter that we generated to our speech signal. The steps for Mel Spectrum and Cepstrum computation remain unchanged and are described in the section **Mel Spectrum and Cepstrum**.
 
 ### Speaker and Speech recognition 
 
