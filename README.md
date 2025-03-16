@@ -119,13 +119,19 @@ After the LBG algorithm processes the speech of each individual speaker, it gene
 In our code, the function ```compare_codebooks``` is employed to compute the average distance between centroids. To calculate these distances, we utilize the ```cdist``` function, which computes the pairwise distances between centroids in the training and testing datasets. However, this approach may introduce a potential issue. Specifically, we intend to compare centroid 1 from the training data with centroid 1 from the testing data, centroid 2 with centroid 2, and so on. However, the ```cdist``` function calculates the distance between centroid 1 from the training data and all other centroids in the test data. To address this, we assume that the centroid pair with the minimum distance in the ```cdist``` output represents the direct comparison between corresponding centroids. Subsequently, we calculate the average distance across all centroid comparisons to identify the pair of centroids that exhibits the smallest average distance, which would then correspond to the most accurate match between the training and testing datasets. To test the accuracy in test 10, since we have different speech, we used one test centriod to compare all the training centriods for all speakers and all the speech. The shortest distance will be the speaker and the speech.
 
 ### Result
-In Test 7, we conducted tests on Train_data and test_data with 7 audio within the file, and we achieved 71% accuracy in recognizing the speaker. So we have preocess with the similar algorithm in the later test 10 with speech and speaker recognizing, with change of espolion value, and windowing size to improve prfromance. It also shows that as training data and test data increase, the accuracy has significant improvement as well.
+In Test 7, we conducted experiments using both the training data and test data, each containing seven audio files. The algorithm achieved an accuracy of 71% in speaker recognition. Building on this, we continued the evaluation in Test 10, where we applied a similar approach for both speech and speaker recognition. Key modifications, such as adjustments to the epsilon value and windowing size, were implemented to improve performance. The results demonstrated that as the size of both the training and test datasets increased, the accuracy of recognition showed a significant improvement. Figure 7 illustrates the results of speech and speaker recognition for words "zero" and "twelve," where the algorithm achieved 100% accuracy in word recognition and an average accuracy of 91%. Furthermore, Figure 8 presents results for a larger sample of training and test data, where the algorithm achieved 100% accuracy in speech recognition and an overall accuracy of 93%. These results indicate that our algorithm is capable of outperforming many human speech recognition systems, achieving over 90% confidence in its predictions.
 
 <div align="center">
 
-  <img src="https://github.com/user-attachments/assets/96efb9e3-9dba-4022-837a-6924a23a07d7" alt="Figure 1" width="750"/>
+  <img src="https://github.com/user-attachments/assets/96efb9e3-9dba-4022-837a-6924a23a07d7" alt="Figure 1" width="420"/>
   
   Figure 7: Test Result of Zero and Twelve testing
+
+  <img src="https://github.com/user-attachments/assets/debee4e8-0c4d-4d87-93d4-1ae37d5e0103" alt="Figure 1" width="420"/>
+  
+  Figure 8: Test Result of Five and Eleven testing
   
 </div>
+
+
 
