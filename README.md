@@ -76,13 +76,13 @@ The process begins with the initialization of a codebook, typically containing a
   Figure 3: Flow diagram of LBG algorithm (Adopted from Rabiner and Juang, 1993)
   
 </div>
-
+To visualize the centroids and the cepstrum, we have plotted them in a two-dimensional (2D) scatter plot. The cepstrum and centroid are originally in a 19-dimensional (19D) space, as we utilized 19 Mel-frequency cepstral coefficients (MFCCs) from the Mel filter bank. Figure 4 presents a scatter plot of MFCC-4 and MFCC-5, which has been selected to create the 2D representation. Each speaker in the dataset is represented by four centroids, which correspond to the cluster points associated with each individual speaker. These centroids are crucial for later applications, including speech and speaker recognition, as they serve as distinct markers for identifying and differentiating speakers based on their acoustic features.
 
 <div align="center">
 
   <img src="https://github.com/user-attachments/assets/d4279434-b817-439a-b9ba-619e57d297c0" alt="Figure 1" width="750"/>
   
-  Figure 4: Flow diagram of LBG algorithm (Adopted from Rabiner and Juang, 1993)
+  Figure 4: Scatter plot and centroid of mfcc-4 and mfcc-5
   
 </div>
 
