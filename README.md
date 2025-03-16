@@ -80,7 +80,7 @@ The process begins with the initialization of a codebook, typically containing a
 
 <div align="center">
 
-  <img src="https://github.com/user-attachments/assets/d4279434-b817-439a-b9ba-619e57d297c0" alt="Figure 1" width="500"/>
+  <img src="https://github.com/user-attachments/assets/d4279434-b817-439a-b9ba-619e57d297c0" alt="Figure 1" width="750"/>
   
   Figure 4: Flow diagram of LBG algorithm (Adopted from Rabiner and Juang, 1993)
   
