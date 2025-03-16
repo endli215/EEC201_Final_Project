@@ -114,6 +114,21 @@ To evaluate the effect of the notch filter, we compute the accuracy of the speec
 
 To implement the notch filter, we modify the existing code from Test 4, which computes the cepstrum coefficients. The key difference is that we add code to filter the speech signal before computing MFCCs. To implement the notch filter we use the function `iirnotch` from `scipy.signal` to create the notch filter. We then use `filtfilt` function from the same library to apply our notch filter that we generated to our speech signal. The steps for Mel Spectrum and Cepstrum computation remain unchanged and are described in the section **Mel Spectrum and Cepstrum**.
 
+When applying the notch filter to our signal. The accuracy we acheive is was less compared to when we did not apply the notch filter.
+
+<div align="center">
+  
+<img width="351" alt="Screenshot 2025-03-15 at 9 04 57 PM" src="https://github.com/user-attachments/assets/8b848f20-6b45-4b89-9e14-d94195a557f7" />
+
+Figure 7: The accuracy of speech recognition when notch filter is set at 30Hz
+
+<img width="488" alt="Screenshot 2025-03-15 at 9 06 20 PM" src="https://github.com/user-attachments/assets/dd8e22fe-6e70-46d7-83ba-35c2ef6e1d7e" />
+
+Figure 8: The accuracy of speech recognition with notch filter at different frequencies.
+
+</div>
+
+
 ### Speaker and Speech recognition 
 After the LBG algorithm processes the speech of each individual speaker, it generates a unique centroid for each speaker’s voice. In the context of speech and speaker recognition, the generated centroid can be compared to centroids from other speakers. Since each centroid represents the distinct acoustic features of a particular speaker, we can compute the distance between the centroids of different speakers and their respective speech samples. The centroid with the minimum distance to the test sample will correspond to the recognized speaker and the speech. This approach leverages the uniqueness of each centroid, ensuring that the correct speaker and speech are identified based on the closest match in centroid space.
 
@@ -126,11 +141,11 @@ In Test 7, we conducted experiments using both the training data and test data, 
 
   <img src="https://github.com/user-attachments/assets/96efb9e3-9dba-4022-837a-6924a23a07d7" alt="Figure 1" width="420"/>
   
-  Figure 7: Test Result of Zero and Twelve testing
+  Figure 9: Test Result of Zero and Twelve testing
 
   <img src="https://github.com/user-attachments/assets/debee4e8-0c4d-4d87-93d4-1ae37d5e0103" alt="Figure 1" width="420"/>
   
-  Figure 8: Test Result of Five and Eleven testing
+  Figure 10: Test Result of Five and Eleven testing
   
 </div>
 
