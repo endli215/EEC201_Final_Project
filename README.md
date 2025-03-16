@@ -65,9 +65,10 @@ We then apply the Mel filter banks to every window to get the Mel spectrum. By t
 Next, we take the logarithm of the Mel-filtered energies. This step aligns with human auditory perception, where loudness is perceived logarithmically rather than linearly.
 
 Finally, we compute the Discrete Cosine Transform (DCT) to obtain the Mel Cepstrum Coefficients (MFCCs). The DCT removes correlations between the Mel-scaled features and produces a compact representation. The equation for DCT is shown below
-
+<div align="center">
 <img width="673" alt="Screenshot 2025-03-15 at 3 36 03 PM" src="https://github.com/user-attachments/assets/76856d35-f05f-4b8e-83a0-a64b5e9c295f" />
 
+</div>
 where `k` is the number of Mel filter banks, and `c_n` represents the `n`-th cepstral coefficient. We use the function `dct()` to compute the Discrete Cosine Transform for use. 
 
 We calculate 20 coefficients but remove the first coefficient to eliminate the influence of overall loudness. This ensures that our model captures only the distinct features of speech, rather than variations in volume. The output of our code is MxN where M is the amount of windows when window framing and N is the Mel Cepstrum Coefficients.
@@ -114,7 +115,7 @@ To evaluate the effect of the notch filter, we compute the accuracy of the speec
 
 To implement the notch filter, we modify the existing code from Test 4, which computes the cepstrum coefficients. The key difference is that we add code to filter the speech signal before computing MFCCs. To implement the notch filter we use the function `iirnotch` from `scipy.signal` to create the notch filter. We then use `filtfilt` function from the same library to apply our notch filter that we generated to our speech signal. The steps for Mel Spectrum and Cepstrum computation remain unchanged and are described in the section **Mel Spectrum and Cepstrum**.
 
-When applying the notch filter to our signal. The accuracy we acheive is was less compared to when we did not apply the notch filter.
+When applying the notch filter to our signal. The accuracy we acheive is less when compared to when we did not apply the notch filter. The only explanation for this is that the notch filter removes too many core features of our speach signal that the algorithm has a harder time decipherying between the different speakers.
 
 <div align="center">
   
