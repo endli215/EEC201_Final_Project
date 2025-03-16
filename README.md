@@ -70,6 +70,10 @@ Finally, we compute the Discrete Cosine Transform (DCT) to obtain the Mel Cepstr
 where `k` is the number of Mel filter banks, and `c_n` represents the `n`-th cepstral coefficient. We use the function `dct()` to compute the Discrete Cosine Transform for use. 
 
 We calculate 20 coefficients but remove the first coefficient to eliminate the influence of overall loudness. This ensures that our model captures only the distinct features of speech, rather than variations in volume. The output of our code is MxN where M is the amount of windows when window framing and N is the Mel Cepstrum Coefficients.
+<div align="center">
+<img width="538" alt="Screenshot 2025-03-15 at 5 29 42 PM" src="https://github.com/user-attachments/assets/9b602bc0-2c2b-46a5-8037-22324e4a8420" />
+Figure 4: Plot of Mel Cepstrum Coefficients
+</div>
 
 ### Vector Quantization(LBG)
 In our speech recognition, we have used the Linde-Buzo-Gray (LBG) algorithm, which is a well-known method for vector quantization. Vector quantization is a process used in signal processing and data compression to represent high-dimensional data with a limited set of representative vectors called centroids or codebook vectors. The goal of the LBG algorithm is to partition the data into clusters and optimize the centroids such that the distortion (or quantization error) between the data points and their assigned centroids is minimized. The def function is called ```lbg_vector_quantization(num_centroids, cepstrum, esp)``` it can customize the number of centriods the function is outputting, and we can customize each esp in different cases to get the maximum accuracy, which is excellent.
@@ -80,7 +84,7 @@ The process begins with the initialization of a codebook, typically containing a
   
   <img src="https://github.com/user-attachments/assets/bbb97aaa-6a11-4098-903c-8d00056c7a38" alt="Figure 1" width="500"/>
   
-  Figure 3: Flow diagram of LBG algorithm (Adopted from Rabiner and Juang, 1993)
+  Figure 5: Flow diagram of LBG algorithm (Adopted from Rabiner and Juang, 1993)
   
 </div>
 To visualize the centroids and the cepstrum, we have plotted them in a two-dimensional (2D) scatter plot. The cepstrum and centroid are originally in a 19-dimensional (19D) space, as we utilized 19 Mel-frequency cepstral coefficients (MFCCs) from the Mel filter bank. Figure 4 presents a scatter plot of MFCC-4 and MFCC-5, which has been selected to create the 2D representation. Each speaker in the dataset is represented by four centroids, which correspond to the cluster points associated with each individual speaker. These centroids are crucial for later applications, including speech and speaker recognition, as they serve as distinct markers for identifying and differentiating speakers based on their acoustic features.
@@ -89,7 +93,7 @@ To visualize the centroids and the cepstrum, we have plotted them in a two-dimen
 
   <img src="https://github.com/user-attachments/assets/d4279434-b817-439a-b9ba-619e57d297c0" alt="Figure 1" width="750"/>
   
-  Figure 4: Scatter plot and centroid of mfcc-4 and mfcc-5
+  Figure 6: Scatter plot and centroid of mfcc-4 and mfcc-5
   
 </div>
 
