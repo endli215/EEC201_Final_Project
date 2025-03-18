@@ -1,5 +1,6 @@
 # EEC201_Final_Project
 Team Golf: Ender Li, Sebastian Diaz 
+
 Link to Video: https://ucdavis.zoom.us/rec/share/OP4m9uWYKt0q9zh-UnBx1QgUlijyVMS_9aSzFkR8pm6VJR_uQbA16GlhAtwMjbgX.2mBdyLQ5CMgU2hxa
 ### Abstract 
 This project explores the implementation of speech recognition using Mel Cepstrum coefficients and the Linde-Buzo-Gray (LBG) clustering algorithm. We detail the step-by-step process of computing Mel Cepstrum coefficients, implementing the LBG algorithm, and integrating both techniques for effective speech recognition. The system is trained on a basic dataset and tested to evaluate its performance, achieving an accuracy of 71%. Our results demonstrate the feasibility of using Mel Cepstrum features and LBG clustering for speech recognition, providing insights into its effectiveness.
